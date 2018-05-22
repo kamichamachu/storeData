@@ -22,7 +22,7 @@ module.exports.storeData = function(request, response){
         var cvv = request.body.cvv;
         var orderTotal = request.body.orderTotal;
         var order = request.body.order;
-        var date = new getDate();
+        var date = new Date();
 
     mongodb.MongoClient.connect(mongoDBURI, function(err,  client)  {
         if(err) throw err;
