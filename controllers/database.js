@@ -4,7 +4,6 @@ var mongoDBURI = process.env.MONGODB_URI || 'mongodb://glharvie:nRl40HM8!@ds2258
 
 module.exports.storeData = function(request, response){
 
-    /*
         var fullname = request.body.fullname;
         var shippingaddress = request.body.shippingaddress;
         var shippingstate = request.body.shippingstate;
@@ -24,8 +23,6 @@ module.exports.storeData = function(request, response){
         var orderTotal = request.body.orderTotal;
         var order = request.body.order;
 
-       */
-
     mongodb.MongoClient.connect(mongoDBURI, function(err,  client)  {
         if(err) throw err;
 
@@ -44,12 +41,12 @@ module.exports.storeData = function(request, response){
 
         var customerdata = {
             _id: customerID,
-            FULLNAME: request.body.fullname,
-            STREET: request.body.shippingaddress,
-            CITY: request.body.city,
-            STATE: request.body.shippingstate,
-            ZIP: request.body.zip,
-            EMAIL: request.body.email
+            FULLNAME: fullname,
+            STREET: shippingaddress,
+            CITY: city,
+            STATE: shippingstate,
+            ZIP: zip,
+            EMAIL: email
         };
 
         CUSTOMERS.insertOne(customerdata, function (err, result) {
@@ -61,10 +58,10 @@ module.exports.storeData = function(request, response){
         var billingdata = {
             _id: billingID,
             CUSTOMER_ID: customerID,
-            CREDITCARDTYPE: request.body.cardtype,
-            CREDITCARDNUMBER: request.body.cardnumber,
-            CREDITCARDEXP: request.body.expmonth + '/' + request.body.expyear,
-            CREDITCARDSECURITYNUM: request.body.cvv
+            CREDITCARDTYPE: cardtype,
+            CREDITCARDNUMBER: cardnumber,
+            CREDITCARDEXP: expmonth + '/' + expyear,
+            CREDITCARDSECURITYNUM: cvv
         };
 
         BILLING.insertOne(billingdata, function (err, result) {
@@ -76,10 +73,10 @@ module.exports.storeData = function(request, response){
         var shippingdata = {
             _id: shippingID,
             CUSTOMER_ID: customerID,
-            SHIPPING_STREET: request.body.shippingaddress,
-            SHIPPING_CITY: request.body.city,
-            SHIPPING_STATE: request.body.shippingstate,
-            SHIPPING_ZIP: request.body.zip
+            SHIPPING_STREET: shippingaddress,
+            SHIPPING_CITY: city,
+            SHIPPING_STATE: shippingstate,
+            SHIPPING_ZIP: zip
         };
 
         SHIPPING.insertOne(shippingdata, function (err, result) {
@@ -94,8 +91,8 @@ module.exports.storeData = function(request, response){
             BILLING_ID: billingID,
             SHIPPING_ID: shippingID,
             DATE: (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear(),
-            PRODUCT_VECTOR: request.body.order,
-            ORDER_TOTAL: request.body.orderTotal
+            PRODUCT_VECTOR: order,
+            ORDER_TOTAL: orderTotal
         };
 
         Orders.insertOne(orderdata, function (err, result) {
