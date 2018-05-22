@@ -54,7 +54,7 @@ module.exports.storeData = function(request, response){
             if (err) throw err;
         });
 
-        var BILLING = client.collection('BILLING');
+        var BILLING = theDatabase.collection('BILLING');
 
         var billingdata = {
             _id: billingID,
