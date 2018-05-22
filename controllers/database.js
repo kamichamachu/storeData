@@ -10,7 +10,7 @@ module.exports.storeData = function(request, response){
         var city = request.body.city;
         var zip = request.body.zip;
         var email = request.body.email;
-        var cardname = request.body.cardname;
+        //var cardname = request.body.cardname;
         var billingaddress = request.body.billingaddress;
         var billingcity = request.body.billingcity;
         var billingstate = request.body.billingstate;
@@ -42,10 +42,10 @@ module.exports.storeData = function(request, response){
         var customerdata = {
             _id: customerID,
             FULLNAME: fullname,
-            STREET: shippingaddress,
-            CITY: city,
-            STATE: shippingstate,
-            ZIP: zip,
+            STREET: billingaddress,
+            CITY: billingcity,
+            STATE: billingstate,
+            ZIP: billingzip,
             EMAIL: email
         };
 
