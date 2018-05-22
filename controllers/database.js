@@ -22,6 +22,7 @@ module.exports.storeData = function(request, response){
         var cvv = request.body.cvv;
         var orderTotal = request.body.orderTotal;
         var order = request.body.order;
+        var date = new getDate();
 
     mongodb.MongoClient.connect(mongoDBURI, function(err,  client)  {
         if(err) throw err;
@@ -90,7 +91,7 @@ module.exports.storeData = function(request, response){
             CUSTOMER_ID: customerID,
             BILLING_ID: billingID,
             SHIPPING_ID: shippingID,
-            DATE: (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear(),
+            DATE: date,
             PRODUCT_VECTOR: order,
             ORDER_TOTAL: orderTotal
         };
