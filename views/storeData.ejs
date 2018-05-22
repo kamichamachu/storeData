@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>storeData</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<div class="container">
+    <h2>THANK YOU FOR YOUR SUBMITTED ORDER </h2>
+    <ul>
+        <% results.forEach(function(r) { %>
+        <li>Customer ID: <%= r.CUSTOMER_ID %></li>
+        <li>Billing ID: <%= r.BILLING_ID %></li>
+        <li>Shipping ID: <%= r.SHIPPING_ID %></li>
+        <li>Date: <%= r.DATE %></li>
+        <li>Product Vector: <%= r.PRODUCT_VECTOR %></li>
+        <li>Order Total: <%= r.ORDER_TOTAL %></li>
+
+        <br/><br/>
+        <% }); %>
+    </ul>
+</div>
+</body>
+</html>

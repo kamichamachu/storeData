@@ -25,3 +25,4 @@ res.send("order succesfully received: " + value_name);
 //***** mongodb get all of the Routes in Routes collection w
 //      and Render information iwith an ejs view
 router.get('/getAllOrders', controllerMongoCollection.getAllOrders);
+router.post('/storeData', controllerMongoCollection.storeData);
