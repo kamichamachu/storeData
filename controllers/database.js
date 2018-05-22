@@ -59,8 +59,8 @@ module.exports.storeData = function(request, response){
             _id: billingID,
             CUSTOMER_ID: customerID,
             CREDITCARDTYPE: cardtype,
-            CREDITCARDNUMBER: cardnumber,
-            CREDITCARDEXP: expmonth,
+            CREDITCARDNUM: cardnumber,
+            CREDITCARDEXP: expmonth + ' ' + expyear,
             CREDITCARDSECURITYNUM: cvv
         };
 
