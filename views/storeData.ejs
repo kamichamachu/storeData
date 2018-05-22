@@ -10,11 +10,11 @@
     <ul>
         <% results.forEach(function(r) { %>
         <li>Customer ID: <%= r.CUSTOMER_ID %></li>
-        <li>Billing ID: <%= r.fullname %></li>
-        <li>Shipping ID: <%= r.shippingaddress %></li>
-        <li>Date: <%= r.city %></li>
-        <li>Product Vector: <%= r.shippingstate %></li>
-        <li>Order Total: <%= r.zip %></li>
+        <li>Billing ID: <%= r.BILLING_ID %></li>
+        <li>Shipping ID: <%= r.SHIPPING_ID %></li>
+        <li>Date: <%= r.DATE %></li>
+        <li>Product Vector: <%= r.PRODUCT_VECTOR %></li>
+        <li>Order Total: <%= r.ORDER_TOTAL %></li>
 
         <br/><br/>
         <% }); %>
