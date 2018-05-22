@@ -40,7 +40,7 @@ module.exports.storeData = function(request, response){
         var orderID = Math.floor((Math.random() * 1000000000000) + 1);
 
         //customer collection operation
-        var Customers = theDatabase.collection('CUSTOMERS');
+        var CUSTOMERS = theDatabase.collection('CUSTOMERS');
 
         var customerdata = {
             _id: customerID,
@@ -56,7 +56,7 @@ module.exports.storeData = function(request, response){
             if (err) throw err;
         });
 
-        var Billing = theDatabase.collection('BILLING');
+        var BILLING = theDatabase.collection('BILLING');
 
         var billingdata = {
             _id: billingID,
@@ -71,7 +71,7 @@ module.exports.storeData = function(request, response){
             if (err) throw err;
         });
 
-        var Shipping = theDatabase.collection('SHIPPING');
+        var SHIPPING = theDatabase.collection('SHIPPING');
 
         var shippingdata = {
             _id: shippingID,
@@ -98,7 +98,7 @@ module.exports.storeData = function(request, response){
             ORDER_TOTAL: request.body.orderTotal
         };
 
-        ORDERS.insertOne(orderdata, function (err, result) {
+        Orders.insertOne(orderdata, function (err, result) {
             if (err) throw err;
         });
 
